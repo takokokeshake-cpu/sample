@@ -39,18 +39,47 @@ public class Assignment4 {
                 columns[3] = columns[3].replace("/",""); // columns[3]<-hire欄に関して、replaceで/を空に
                 columns[7] = columns[7].replace("-",""); // columns[7]<-tel欄に関して、replaceで-を空に
                 
-                if(!columns[0].matches("^[CT]\\d{3}$")){
+
+                //全８項目のエラー処理
+                if (!columns[0].matches("^[CT]\\d{3}$")){
+                    System.out.println("エラー： IDの形式が正しくありません。 社員コード： " + columns[0] + " エラー箇所: " + columns[0]);
                     continue; //間違いがあれば、それ以降の書き込み処理を行わず、次の行へ行く
                 }
 
-                if (!columns[1].matches("^\\d{4}/\\d{2}/\\d{2}$")) {
+                if (!columns[1].matches("^\\d{4}\\d{2}\\d{2}$")) {
+                    System.out.println("エラー： 生年月日が正しくありません。 社員コード： " + columns[0] + " エラー箇所: " + columns[1]);
                     continue;
                 }
 
                 if (!columns[2].matches("男") && !columns[2].matches("女")) {
+                    System.out.println("エラー： 性別が正しくありません。 社員コード： " + columns[0] + " エラー箇所: " + columns[2]);
                     continue;
                 }
 
+                if (!columns[3].matches("^\\d{4}\\d{2}\\d{2}$")) {
+                    System.out.println("エラー： 入社日が正しくありません。 社員コード： " + columns[0] + " エラー箇所: " + columns[3]);
+                    continue;
+                }
+
+                if (!columns[4].matches("^\\d{7}$")) {
+                    System.out.println("エラー： 部署コードが正しくありません。 社員コード： " + columns[0] + " エラー箇所: " + columns[4]);
+                    continue;
+                }
+
+                if (!columns[5].matches(".{1,128}")) {
+                    System.out.println("エラー： 氏名が正しくありません。 社員コード： " + columns[0] + " エラー箇所: " + columns[5]);
+                    continue;
+                }
+
+                if (!columns[6].matches(".{1,128}") || !columns[6].matches(".*@.*\\.mm$")) {
+                    System.out.println("エラー： メールアドレスが正しくありません。 社員コード： " + columns[0] + " エラー箇所: " + columns[6]);
+                    continue;
+                }
+
+                if (!columns[7].matches(".{1,13}")) {
+                    System.out.println("エラー： 電話番号が正しくありません。 社員コード： " + columns[0] + " エラー箇所: " + columns[7]);
+                    continue;
+                }
 
 
 
