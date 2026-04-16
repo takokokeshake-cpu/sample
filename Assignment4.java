@@ -39,6 +39,22 @@ public class Assignment4 {
                 columns[3] = columns[3].replace("/",""); // columns[3]<-hire欄に関して、replaceで/を空に
                 columns[7] = columns[7].replace("-",""); // columns[7]<-tel欄に関して、replaceで-を空に
                 
+                if(!columns[0].matches("^[CT]\\d{3}$")){
+                    continue; //間違いがあれば、それ以降の書き込み処理を行わず、次の行へ行く
+                }
+
+                if (!columns[1].matches("^\\d{4}/\\d{2}/\\d{2}$")) {
+                    continue;
+                }
+
+                if (!columns[2].matches("男") && !columns[2].matches("女")) {
+                    continue;
+                }
+
+
+
+
+                
 
                 if (columns[2].equals("男")){   //columns[2]<-gender欄に関して、男であれば０に
                     columns[2] = "0";
@@ -84,9 +100,12 @@ public class Assignment4 {
                 System.out.println(line); // 読み込んだ行を表示するよ
                 */
             }
+
+        //Fileのtryの読み取れなかった場合の処理欄
         }catch (FileNotFoundException e) {
             System.out.println("エラー： ファイルが見つかりません。");
         }
+        //上に続き、そもそもうまくいかなかった場合の処理欄
         catch (IOException e) {
             System.out.println("エラー： ファイルの読み込みに失敗しました。");
         }
