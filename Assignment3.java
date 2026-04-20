@@ -11,14 +11,16 @@ import java.util.Map;
 
 import org.apache.commons.lang3.compare.ComparableUtils.ComparableCheckBuilder;
 
-class Product {
+
+
+class Product3 {
     int num;
     String numText;
     String name;
     int price;
     int stock;
 
-    public Product(int num, String numText, String name, int price, int stock) {
+    public Product3(int num, String numText, String name, int price, int stock) {
         this.num = num;
         this.numText = numText;
         this.name = name;
@@ -29,8 +31,8 @@ class Product {
 
 public class Assignment3 {
     public static void main(String[] args) {
-        List<Product> productList = new ArrayList<>();
-        Map<Integer, Product> productMap = new HashMap<>();
+        List<Product3> productList = new ArrayList<>();
+        Map<Integer, Product3> productMap = new HashMap<>();
         int successCount = 0;
         int errorCount = 0;
 
@@ -77,12 +79,12 @@ public class Assignment3 {
                     if (valid) {
                         if (productMap.containsKey(num)) {
                             System.out.println("重複商品番号 " + numText + " を上書きしました。");
-                            Product p = productMap.get(num);
+                            Product3 p = productMap.get(num);
                             p.name = name;
                             p.price = price;
                             p.stock = stock;
                         } else {
-                            Product p = new Product(num, numText, name, price, stock);
+                            Product3 p = new Product3(num, numText, name, price, stock);
                             productList.add(p);
                             productMap.put(num, p);
                         }
@@ -106,7 +108,7 @@ public class Assignment3 {
             Collections.sort(productList, Comparator.comparingInt(p -> p.num));
 
             System.out.println("格納されたリスト");
-            for (Product p : productList) {
+            for (Product3 p : productList) {
                 System.out.println("商品番号：" + p.numText + " 商品名：" + p.name + " 価格：" + p.price + " 在庫数：" + p.stock);
             }
 
