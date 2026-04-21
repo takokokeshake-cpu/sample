@@ -185,11 +185,12 @@ public class Assignment5 {
             }
         }
 
+        
         salesList.addAll(insertedList);
 
-            System.out.println("おつり:  ");
             for (int c : changeList) {
-                System.out.print(c + "円 ");
+                System.out.println( "おつり:  "+ c + "円 ");
+
             }
 
         return changeList;
