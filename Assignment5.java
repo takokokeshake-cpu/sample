@@ -185,7 +185,7 @@ public class Assignment5 {
             }
         }
 
-        
+        //おつりの表示
         salesList.addAll(insertedList);
 
             for (int c : changeList) {
